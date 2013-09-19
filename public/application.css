@@ -1,0 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Ribeye);
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+
+h1 {
+	font-family: Ribeye;
+	text-align: center;
+
+}
+
+h3 {
+	font-family: Poiret One;
+}

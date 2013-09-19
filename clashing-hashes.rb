@@ -2,7 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/reloader'
-require_relative 'twitter'
+require 'twitter'
+require_relative 'lib/twitter'
 
 get '/' do
   # '<h1>hello joe and yasmin</h1>'
@@ -16,10 +17,13 @@ post '/twitter' do
   @first_hash = params[:first_hash]
   @second_hash = params[:second_hash]
   
-  # Require twitter module; create empty tweets array; based off Tweet class in Twitter module, make tweets, push in array. Then in html twitter_results.erb, display array
-  @tweets = []
-  tweet1 = Twitter::Tweet.new("yazfaz", "ready for b12")
-  @tweets << tweet1
+
+  #Extension: Require twitter module; create empty tweets array; based off Tweet class in Twitter module, make tweets, push in array. Then in html twitter_results.erb, display array
+  # @tweets= Twitter::Tweet::give_me_tweets(number)
+  # @tweets = [t]
+  # t = Twitter::Tweet.new("ready for b12", "yazfaz")
+  # t2 = Twitter::Tweet.new("ready for more b12", "yazfaz")
+  # @tweets << tweet1
   erb :twitter_results
 
 end
