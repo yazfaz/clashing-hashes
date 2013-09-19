@@ -11,7 +11,7 @@ module Twitter
    def self.give_me_tweets(number)
       tweets = []
     number.times do |x|
-      tweets << Tweet.new ("My status #{x}", "My Author #{x}")
+      tweets << Tweet.new("My status #{x}", "My Author #{x}")
       end
       tweets
     end
