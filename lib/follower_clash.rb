@@ -32,11 +32,11 @@ module FollowerClash
     end
 
     def compare
-      if user1.followers > user2.followers
-        user1
-      elsif user2.followers > user1.followers
-        user 2
-      elsif user1.followers == user2.followers
+      if @user1.followers > @user2.followers
+        @user1
+      elsif @user2.followers > @user1.followers
+        @user2
+      elsif @user1.followers == @user2.followers
         "Both users have the same number of followers." 
       end
     end
