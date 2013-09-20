@@ -11,6 +11,7 @@ module FollowerClash
       @login = login
     end
 
+    # These values are kept secret due to Foreman; stored in .env file. They aren't made public to github.
     def followers
       client = Twitter::Client.new.configure do |config|
         config.consumer_key = ENV['CONSUMER_KEY']
@@ -30,11 +31,12 @@ module FollowerClash
       @user2 = user2
     end
 
+    # Compare the number of followers for each user; followers comes from the followers method in User class. Then display the user's login and number of followers for that user. 
     def compare
       if @user1.followers > @user2.followers
-        @user1.login
+        @user1.login "who has " @user1.followers
       elsif @user2.followers > @user1.followers
-        @user2.login
+        @user2.login "who has " @user2.followers 
       elsif @user1.followers == @user2.followers
         "Both users have the same number of followers." 
       end

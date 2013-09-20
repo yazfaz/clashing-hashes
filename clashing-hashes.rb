@@ -6,36 +6,16 @@ require 'twitter'
 require_relative 'lib/follower_clash'
 
 get '/' do
-  # '<h1>hello joe and yasmin</h1>'
-  @name = 'joe'
-  @show_description = true
   
   erb :index
 end
 
+# The params[:first_login] refers to the input form in index.html. So by calling it here, we get the user's login (value passed into form). Here, setting @user1 to a new user with login at params[:first_login]
 post '/twitter' do
-  @first_hash = params[:first_hash]
-  @second_hash = params[:second_hash]
-  @user1 = FollowerClash::User.new(params[:first_hash])
-  @user2 = FollowerClash::User.new(params[:second_hash])
+  @user1 = FollowerClash::User.new(params[:first_login])
+  @user2 = FollowerClash::User.new(params[:second_login])
   @result = FollowerClash::Comparer.new(@user1,@user2).compare
   
-
-  #Extension: Require twitter module; create empty tweets array; based off Tweet class in Twitter module, make tweets, push in array. Then in html twitter_results.erb, display array
-  # @tweets= Twitter::Tweet::give_me_tweets(number)
-  # @tweets = [t]
-  # t = Twitter::Tweet.new("ready for b12", "yazfaz")
-  # t2 = Twitter::Tweet.new("ready for more b12", "yazfaz")
-  # @tweets << tweet1
   erb :twitter_results
 
 end
-
-# get '/twitter' do
-#   puts "Your posts #{@first_hash} and #{@second_hash} was submitted"
-# erb:index
-# end
-
-# request.POST.inspect
-
-# http://surrealdetective.github.io/blog/2013/07/01/the-nested-ruby-params-hash-for-complex-html-forms-and-sinatra/
