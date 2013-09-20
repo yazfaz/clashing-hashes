@@ -5,11 +5,10 @@ require 'twitter'
 
 module FollowerClash
   class User
-    attr_reader :login, :followers
+    attr_reader :login
     
     def initialize(login)
       @login = login
-      @followers = 0
     end
 
     def followers
@@ -33,9 +32,9 @@ module FollowerClash
 
     def compare
       if @user1.followers > @user2.followers
-        @user1
+        @user1.login
       elsif @user2.followers > @user1.followers
-        @user2
+        @user2.login
       elsif @user1.followers == @user2.followers
         "Both users have the same number of followers." 
       end

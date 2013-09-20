@@ -18,7 +18,7 @@ post '/twitter' do
   @second_hash = params[:second_hash]
   @user1 = FollowerClash::User.new(params[:first_hash])
   @user2 = FollowerClash::User.new(params[:second_hash])
-  @result = FollowerClash::Comparer.new(@user1,@user2)
+  @result = FollowerClash::Comparer.new(@user1,@user2).compare
   
 
   #Extension: Require twitter module; create empty tweets array; based off Tweet class in Twitter module, make tweets, push in array. Then in html twitter_results.erb, display array
