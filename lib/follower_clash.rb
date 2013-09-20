@@ -34,9 +34,9 @@ module FollowerClash
     # Compare the number of followers for each user; followers comes from the followers method in User class. Then display the user's login and number of followers for that user. 
     def compare
       if @user1.followers > @user2.followers
-        @user1.login "who has " @user1.followers
+        @user1.login
       elsif @user2.followers > @user1.followers
-        @user2.login "who has " @user2.followers 
+        @user2.login
       elsif @user1.followers == @user2.followers
         "Both users have the same number of followers." 
       end
