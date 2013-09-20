@@ -9,7 +9,7 @@ module FollowerClash
     
     def initialize(login)
       @login = login
-      @followers = 0
+      @followers = ''
     end
 
     def followers
